@@ -11,5 +11,7 @@ public class TestConvertion
 
         int val = Convertion.tab2Entier(test);
         System.out.println(val);
+
+        System.out.println(Convertion.enChaine(test));
     }
 }

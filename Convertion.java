@@ -44,8 +44,36 @@ public class Convertion {
 
 	public static String enChaine(boolean tab[])
 	{
+		String chaine;
 
+		chaine = "+";
 
-		return "Bonjour";
+		for (int i = 0; i < tab.length; i++) 
+		{
+			chaine += "-----+";
+		}
+
+		chaine += "\n|";
+
+		for (int i = 0; i < tab.length; i++)
+		{
+			if(tab[i])
+			{
+				chaine += "true |";
+			}
+			else
+			{
+				chaine += "false|";
+			}
+		}
+
+		chaine += "\n+";
+
+		for (int i = 0; i < tab.length; i++) 
+		{
+			chaine += "-----+";
+		}
+
+		return chaine;
 	}
 }
