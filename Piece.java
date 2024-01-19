@@ -10,24 +10,35 @@ public class Piece {
 	private String nom;
 	private boolean[] ouvertures = new boolean[4];
 
-	public Piece(int Valeur)
+	public Piece(int valeur)
 	{
-		this(Valeur, "");
+		this(valeur, "");
 	}
 
-	public Piece(int Valeur, String nom)
+	public Piece(int valeur, String nom)
 	{
-		ouvertures = 
+		this.nom = nom;
+		this.ouvertures = Convertion.entier2Tab(valeur, ouvertures.length);
 	}
 
 	public int getValOuvertures()
 	{
-		return 1;
+		return Convertion.tab2Entier(this.ouvertures);
 	}
 
 	public boolean getOuverture(char dir)
 	{
-		return true;
+		boolean tempo;
+		
+		tempo = true;
+		switch( dir )
+		{
+			case 'N' -> tempo = this.ouvertures[0];
+			case 'O' -> tempo = this.ouvertures[1];
+			case 'S' -> tempo = this.ouvertures[2];
+			case 'E' -> tempo = this.ouvertures[3];
+		}
+		return tempo;
 	}
 
 	public String toString()
@@ -35,11 +46,39 @@ public class Piece {
 		String chaine;
 		chaine = "";
 
+		if(getValOuvertures() < 10)
+		{
+			chaine += " " + getValOuvertures();
+		}
+		else
+		{
+			chaine += getValOuvertures();
+		}
+
+		chaine += this.nom + "   ==> ";
+
+		chaine += "Nord(" + indiceDir('N') + ") :" + getOuverture('N');
+		chaine += " Ouest(" + indiceDir('O') + ") :" + getOuverture('O');
+		chaine += " Sud(" + indiceDir('S') + ") :" + getOuverture('S');
+		chaine += " Est(" + indiceDir('E') + ") :" + getOuverture('E');
+
 		return chaine;
 	}
 
 	public static int indiceDir(char dir)
 	{
-		return 1;
+		int indice;
+
+		indice = -1;
+
+		switch( dir )
+		{
+			case 'N' -> indice = 0;
+			case 'E' -> indice = 1;
+			case 'S' -> indice = 2;
+			case 'O' -> indice = 3;
+		}
+
+		return indice;
 	}
 }
