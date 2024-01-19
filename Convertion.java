@@ -1,3 +1,10 @@
+/**  
+ * Convert integer value to a boolean array and a boolean 
+ * array to a integer value
+ * @author Quillard Guillaume
+ * @version 1.0 du 16/01/2024
+**/
+
 import java.lang.Math;
 
 public class Convertion {
