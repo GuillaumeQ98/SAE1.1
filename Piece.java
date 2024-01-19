@@ -55,7 +55,7 @@ public class Piece {
 			chaine += getValOuvertures();
 		}
 
-		chaine += this.nom + "   ==> ";
+		chaine += " " + this.nom + "   ==> ";
 
 		chaine += "Nord(" + indiceDir('N') + ") :" + getOuverture('N');
 		chaine += " Ouest(" + indiceDir('O') + ") :" + getOuverture('O');
@@ -74,9 +74,9 @@ public class Piece {
 		switch( dir )
 		{
 			case 'N' -> indice = 0;
-			case 'E' -> indice = 1;
+			case 'O' -> indice = 1;
 			case 'S' -> indice = 2;
-			case 'O' -> indice = 3;
+			case 'E' -> indice = 3;
 		}
 
 		return indice;

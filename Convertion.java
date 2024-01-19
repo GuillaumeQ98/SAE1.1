@@ -19,11 +19,9 @@ public class Convertion {
 			if(valeur % 2 == 0)
 			{
 				tab[i] = false;
-				System.out.println("test1");
 			}
 			else
 			{
-				System.out.println("test2");
 				tab[i] = true;
 			}
 
