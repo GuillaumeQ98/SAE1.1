@@ -88,18 +88,18 @@ public class Convertion {
 
 		chaine = "";
 
-		for(int i = 0; i < dedale.getNbLigne(); i++)
+		for(int i = 0; i < dedale.getNbLigne()-1; i++)
 		{
 			chaine += "+";
 
-			for(int k = 0; k < dedale.getNbLigne(); k++)
+			for(int k = 0; k < dedale.getNbLigne()-1; k++)
 			{
 				chaine += "----+";
 			}
 
 			chaine += "\n";
 
-			for(int j = 0; i < dedale.getNbColonne(); j++)
+			for(int j = 0; j < dedale.getNbColonne(); j++)
 			{
 				if(j == 0)
 				{
@@ -108,7 +108,15 @@ public class Convertion {
 
 				chaine += dedale.getPiece(i, j).getValOuvertures() + " |";
 			}
+
+			chaine += "\n";
+
 		}
+
+		for(int k = 0; k < dedale.getNbLigne()-1; k++)
+			{
+				chaine += "----+";
+			}
 
 		return chaine;
 	}
@@ -126,6 +134,7 @@ public class Convertion {
 			for(int j = 0; j < dedale.getNbColonne(); j++)
 			{
 				chaine += dedale.getPiece(i, j).toString();
+				chaine += "\n";
 			}
 		}
 

@@ -11,7 +11,7 @@ public class Dedale
 
 	public Dedale ()
 	{
-		
+		tabPiece = new Piece[5][5];
 		this.tabPiece = this.initPiece();
 	}
 
@@ -20,7 +20,7 @@ public class Dedale
 	{
 		Piece tempo = null;
 
-		if(lig < 0 || lig >= tabPiece.length || col < 0 || col >= tabPiece.length)
+		if(lig < 0 || lig > tabPiece.length || col < 0 || col > tabPiece.length)
 		{
 			return null;
 		}
@@ -71,8 +71,10 @@ public class Dedale
 
 		for(int i = 0; i < dedale.length; i++)
 		{
-			for(int j = 0; i < dedale.length; j++)
+			System.out.println("i" +i);
+			for(int j = 0; j < dedale.length; j++)
 			{
+				System.out.println("j" +j);
 				dedale[i][j] = new Piece(tabNumPiece[i][j]);
 			}
 		}
