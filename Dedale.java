@@ -46,6 +46,119 @@ public class Dedale
 		return true;
 	}
 
+	public String validite()
+	{
+		String  valide;
+		char    orient, orientAdj, pbOrient;
+		boolean noPbOrient;
+
+		valide = "";
+		orient = 'N';
+		orientAdj = 'S';
+		pbOrient = 'N';
+		noPbOrient = true;
+
+		for(int i = 0; i < this.tabPiece.length; i++)
+		{
+			for(int j = 0; j < this.tabPiece.length; j++)
+			{
+				orient = 'N';
+
+				if(getPiece(i,j).getOuverture(orient))
+				{
+					orientAdj = 'S';
+
+					if(getPieceAdj(i, j, orient).getOuverture(orientAdj))
+					{
+						noPbOrient = true;
+					}
+					else
+					{
+						noPbOrient = false;
+						pbOrient = 'N';
+					}
+				}
+
+				orient = 'O';
+
+				if(getPiece(i,j).getOuverture(orient))
+				{
+					orientAdj = 'E';
+
+					if(getPieceAdj(i, j, orient).getOuverture(orientAdj))
+					{
+						noPbOrient = true;
+					}
+					else
+					{
+						noPbOrient = false;
+						pbOrient = 'O';
+					}
+				}
+
+				orient = 'S';
+
+				if(getPiece(i,j).getOuverture(orient))
+				{
+					orientAdj = 'N';
+
+					if(getPieceAdj(i, j, orient).getOuverture(orientAdj))
+					{
+						noPbOrient = true;
+					}
+					else
+					{
+						noPbOrient = false;
+						pbOrient = 'S';
+					}
+				}
+
+				orient = 'E';
+
+				if(getPiece(i,j).getOuverture(orient))
+				{
+					orientAdj = 'O';
+
+					if(getPieceAdj(i, j, orient).getOuverture(orientAdj))
+					{
+						noPbOrient = true;
+					}
+					else
+					{
+						noPbOrient = false;
+						pbOrient = 'E';
+					}
+				}
+
+				valide += "Piece[" + i + "]" + "[" + j + "]  " + getPiece(i, j).getValOuvertures();
+			
+				if(noPbOrient)
+				{
+					valide += "   OK\n"; 
+				}
+				else
+				{
+					valide += "\n		pb avec piece situee au ";
+				
+					switch (pbOrient)
+					{
+						case 'N' -> valide += "Nord";
+						case 'O' -> valide += "Ouest";
+						case 'S' -> valide += "Sud";
+						case 'E' -> valide += "Est";
+					}
+
+					valide += "\n";
+				}	
+			}
+			
+			
+		}
+		
+
+		return valide;
+	}
+
 	public int   getNbLigne  () 
 	{ 
 		return tabPiece.length;
@@ -65,7 +178,7 @@ public class Dedale
 	private Piece[][] initPiece()
 	{
 		Piece[][] dedale;
-		int[][]   tabNumPiece = {{0, 0, 8, 0, 0}, {12, 1, 10, 4, 9}, {14, 5, 15, 5, 11}, {6, 1, 10, 4, 3}, {0, 0, 2, 0, 0}};
+		int[][]   tabNumPiece = {{0, 12, 14, 6, 0}, {0, 1, 5, 1, 0}, {8, 10, 15, 10, 2}, {0, 4, 5, 4, 0}, {0, 9, 11, 3, 0}};
 
 		dedale = new Piece[tabPiece.length][tabPiece.length];
 

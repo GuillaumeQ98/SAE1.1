@@ -40,7 +40,7 @@ public class TestDedale
 
 		System.out.println ( Convertion.detail ( dedale ) );
 
-		System.out.println();
+		System.out.println( dedale.validite());
 
 
 	}
