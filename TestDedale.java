@@ -28,7 +28,7 @@ public class TestDedale
 		System.out.println ( " Grille"    );
 		System.out.println ( "--------\n" );
 
-		System.out.println ( Conversion.grille ( dedale ) );
+		System.out.println ( Convertion.grille ( dedale ) );
 
 		System.out.println();
 
@@ -38,9 +38,10 @@ public class TestDedale
 		System.out.println ( " Detail"    );
 		System.out.println ( "--------\n" );
 
-		System.out.println ( Conversion.detail ( dedale ) );
+		System.out.println ( Convertion.detail ( dedale ) );
 
 		System.out.println();
+
 
 	}
 

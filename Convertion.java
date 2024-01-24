@@ -81,4 +81,56 @@ public class Convertion {
 
 		return chaine;
 	}
+
+	public static String grille(Dedale dedale)
+	{
+		String chaine;
+
+		chaine = "";
+
+		for(int i = 0; i < dedale.getNbLigne(); i++)
+		{
+			chaine += "+";
+
+			for(int k = 0; k < dedale.getNbLigne(); k++)
+			{
+				chaine += "----+";
+			}
+
+			chaine += "\n";
+
+			for(int j = 0; i < dedale.getNbColonne(); j++)
+			{
+				if(j == 0)
+				{
+					chaine += "|";
+				}
+
+				chaine += dedale.getPiece(i, j).getValOuvertures() + " |";
+			}
+		}
+
+		return chaine;
+	}
+
+	public static String detail(Dedale dedale)
+	{
+		String chaine;
+
+		chaine = "";
+
+		for(int i = 0; i < dedale.getNbLigne(); i++)
+		{
+			chaine += "== Ligne  " + i + "==============================================================\n";
+
+			for(int j = 0; j < dedale.getNbColonne(); j++)
+			{
+				chaine += dedale.getPiece(i, j).toString();
+			}
+		}
+
+
+		return chaine;
+	}
+	
 }

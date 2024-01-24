@@ -4,12 +4,14 @@
  * @version 1.0 du 16/01/2024
  */
 
+
 public class Dedale
 {
 	private Piece[][] tabPiece;
 
 	public Dedale ()
 	{
+		
 		this.tabPiece = this.initPiece();
 	}
 
@@ -63,9 +65,17 @@ public class Dedale
 	private Piece[][] initPiece()
 	{
 		Piece[][] dedale;
+		int[][]   tabNumPiece = {{0, 0, 8, 0, 0}, {12, 1, 10, 4, 9}, {14, 5, 15, 5, 11}, {6, 1, 10, 4, 3}, {0, 0, 2, 0, 0}};
 
 		dedale = new Piece[tabPiece.length][tabPiece.length];
 
+		for(int i = 0; i < dedale.length; i++)
+		{
+			for(int j = 0; i < dedale.length; j++)
+			{
+				dedale[i][j] = new Piece(tabNumPiece[i][j]);
+			}
+		}
 
 		return dedale;
 	}
