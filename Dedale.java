@@ -49,17 +49,23 @@ public class Dedale
 	public String validite()
 	{
 		String  valide;
-		char    orient, orientAdj, pbOrient;
+		char    orient, orientAdj, tempo;
+		char[] pbOrient = new char[4];
 		boolean noPbOrient;
 
 		valide = "";
 		orient = 'N';
 		orientAdj = 'S';
-		pbOrient = 'N';
+		pbOrient[0] = 'a';
 		noPbOrient = true;
 
 		for(int i = 0; i < this.tabPiece.length; i++)
 		{
+			pbOrient[0] = 'a';
+			pbOrient[1] = 'a';
+			pbOrient[2] = 'a';
+			pbOrient[3] = 'a';
+
 			for(int j = 0; j < this.tabPiece.length; j++)
 			{
 				orient = 'N';
@@ -75,7 +81,7 @@ public class Dedale
 					else
 					{
 						noPbOrient = false;
-						pbOrient = 'N';
+						pbOrient[0] = 'N';
 					}
 				}
 
@@ -92,7 +98,7 @@ public class Dedale
 					else
 					{
 						noPbOrient = false;
-						pbOrient = 'O';
+						pbOrient[1] = 'O';
 					}
 				}
 
@@ -109,7 +115,7 @@ public class Dedale
 					else
 					{
 						noPbOrient = false;
-						pbOrient = 'S';
+						pbOrient[2] = 'S';
 					}
 				}
 
@@ -126,7 +132,7 @@ public class Dedale
 					else
 					{
 						noPbOrient = false;
-						pbOrient = 'E';
+						pbOrient[3] = 'E';
 					}
 				}
 
@@ -140,12 +146,17 @@ public class Dedale
 				{
 					valide += "\n		pb avec piece situee au ";
 				
-					switch (pbOrient)
+					for(int k = 0; k < pbOrient.length; k++)
 					{
-						case 'N' -> valide += "Nord";
-						case 'O' -> valide += "Ouest";
-						case 'S' -> valide += "Sud";
-						case 'E' -> valide += "Est";
+						tempo = pbOrient[k];
+
+						switch (tempo)
+						{
+							case 'N' -> valide += "Nord";
+							case 'O' -> valide += "Ouest";
+							case 'S' -> valide += "Sud";
+							case 'E' -> valide += "Est";
+						}
 					}
 
 					valide += "\n";
@@ -178,7 +189,7 @@ public class Dedale
 	private Piece[][] initPiece()
 	{
 		Piece[][] dedale;
-		int[][]   tabNumPiece = {{0, 12, 14, 6, 0}, {0, 1, 5, 1, 0}, {8, 10, 15, 10, 2}, {0, 4, 5, 4, 0}, {0, 9, 11, 3, 0}};
+		int[][]   tabNumPiece = {{0, 12, 14, 6, 0}, {0, 1, 5, 1, 0}, {8, 10, 0, 10, 2}, {0, 4, 5, 4, 0}, {0, 9, 11, 3, 0}};
 
 		dedale = new Piece[tabPiece.length][tabPiece.length];
 
