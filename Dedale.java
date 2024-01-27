@@ -195,10 +195,10 @@ public class Dedale
 
 		for(int i = 0; i < dedale.length; i++)
 		{
-			System.out.println("i" +i);
+			//System.out.println("i" +i);
 			for(int j = 0; j < dedale.length; j++)
 			{
-				System.out.println("j" +j);
+				//System.out.println("j" +j);
 				dedale[i][j] = new Piece(tabNumPiece[i][j]);
 			}
 		}

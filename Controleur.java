@@ -11,29 +11,55 @@ public class Controleur extends Controle
 		this.metier = new Dedale();
 		this.frame  = new FrameGrille ( this );
 
-		frame.setSize     ("A COMPLETER" );
+		frame.setSize     ( 600, 600 );
 		frame.setLocation (   10,   10   );
-		frame.setTitle    ( /* A compléter */  );
+		frame.setTitle    ( "Dedale" );
 		frame.setVisible  ( true         );
 	}
 
 
-	public int     setNbLigne        () { /* A compléter */   }
-	public int     setNbColonne      () { /* A compléter */   }
-	public int     setLargeurImg     () { /* A compléter */   }
-	public String  setFondGrille     () { /* A compléter */   }
+	public int     setNbLigne()
+	{
+		return metier.getNbLigne();
+	}
+
+	public int     setNbColonne()
+	{
+		return metier.getNbColonne();
+	}
+
+	public int     setLargeurImg()
+	{
+		return 600;
+	}
+
+	public String  setFondGrille()
+	{
+		return "./images/fond.png";
+	}
 
 	public String setImage ( int ligne, int colonne, int couche)
 	{
 		String rep = "./images/";
 		String sImage=null;
 
+		System.out.println("Image coord " + colonne + ligne);
 		if ( couche==0 )
 		{
-			/* A compléter */
+					if(metier.getPiece(ligne, colonne).getValOuvertures() < 10)
+					{
+						sImage = rep + "P0" + metier.getPiece(ligne, colonne).getValOuvertures() + ".png";
+					}
+					else
+					{
+						sImage = rep + "P" + metier.getPiece(ligne, colonne).getValOuvertures() + ".png";
+					}
+					System.out.println(sImage);
+					
+			
 		}
 
-		return sImage;
+		return "./images/P09.png";
 	}
 
 	public static void main(String[] a)
