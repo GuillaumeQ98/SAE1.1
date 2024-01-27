@@ -177,7 +177,7 @@ public class Dedale
 
 	public int   getNbColonne() 
 	{
-		return tabPiece.length;
+		return tabPiece[0].length;
 	}
 
 	public Piece getPiece (int lig, int col)
@@ -191,6 +191,8 @@ public class Dedale
 		Piece[][] dedale;
 		int[][]   tabNumPiece = {{0, 12, 14, 6, 0}, {0, 1, 5, 1, 0}, {8, 10, 0, 10, 2}, {0, 4, 5, 4, 0}, {0, 9, 11, 3, 0}};
 
+		char nom = 'A';
+
 		dedale = new Piece[tabPiece.length][tabPiece.length];
 
 		for(int i = 0; i < dedale.length; i++)
@@ -199,7 +201,8 @@ public class Dedale
 			for(int j = 0; j < dedale.length; j++)
 			{
 				//System.out.println("j" +j);
-				dedale[i][j] = new Piece(tabNumPiece[i][j]);
+				dedale[i][j] = new Piece(tabNumPiece[i][j], nom + "");
+				nom++;
 			}
 		}
 

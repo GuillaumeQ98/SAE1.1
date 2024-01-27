@@ -30,7 +30,7 @@ public class Controleur extends Controle
 
 	public int     setLargeurImg()
 	{
-		return 600;
+		return 100;
 	}
 
 	public String  setFondGrille()
@@ -42,10 +42,13 @@ public class Controleur extends Controle
 	{
 		String rep = "./images/";
 		String sImage=null;
+		int valeur;
 
-		System.out.println("Image coord " + colonne + ligne);
+		//System.out.println("Image coord " + colonne + ligne);
 		if ( couche==0 )
 		{
+
+			
 					if(metier.getPiece(ligne, colonne).getValOuvertures() < 10)
 					{
 						sImage = rep + "P0" + metier.getPiece(ligne, colonne).getValOuvertures() + ".png";
@@ -54,12 +57,11 @@ public class Controleur extends Controle
 					{
 						sImage = rep + "P" + metier.getPiece(ligne, colonne).getValOuvertures() + ".png";
 					}
-					System.out.println(sImage);
-					
+					System.out.println(sImage); 
 			
 		}
 
-		return "./images/P09.png";
+		return sImage;
 	}
 
 	public static void main(String[] a)
