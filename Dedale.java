@@ -189,7 +189,7 @@ public class Dedale
 	private Piece[][] initPiece()
 	{
 		Piece[][] dedale;
-		int[][]   tabNumPiece = {{0, 12, 14, 6, 0}, {0, 1, 5, 1, 0}, {8, 10, 0, 10, 2}, {0, 4, 5, 4, 0}, {0, 9, 11, 3, 0}};
+		int[][]   tabNumPiece = {{0, 12, 14, 6, 0}, {0, 1, 5, 1, 0}, {8, 10, 15, 10, 2}, {0, 4, 5, 4, 0}, {0, 9, 11, 3, 0}};
 
 		char nom = 'A';
 
