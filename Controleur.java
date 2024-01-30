@@ -66,6 +66,10 @@ public class Controleur extends Controle
 					System.out.println(sImage); 
 			
 		}
+		if(couche == 1)
+		{
+			sImage = rep + "dw_s.png";
+		}
 
 		return sImage;
 	}

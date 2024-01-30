@@ -8,11 +8,13 @@
 public class Dedale
 {
 	private Piece[][] tabPiece;
+	private Piece pieceHeros;
 
 	public Dedale ()
 	{
 		tabPiece = new Piece[5][5];
 		this.tabPiece = this.initPiece();
+		//
 	}
 
 
@@ -205,6 +207,9 @@ public class Dedale
 				nom++;
 			}
 		}
+
+		pieceHeros = new Piece(1,"Hero");
+		this.tabPiece[1][1] = pieceHeros;
 
 		return dedale;
 	}
