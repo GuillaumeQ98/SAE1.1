@@ -8,7 +8,7 @@ public class Piece {
 	public static String[] tabDir = {"Nord", "Ouest", "Sud", "Est"};
 
 	private String nom;
-	private boolean[] ouvertures = new boolean[4];
+	private boolean[] ouvertures = new boolean[6];
 
 	public Piece(int valeur)
 	{
@@ -23,6 +23,27 @@ public class Piece {
 
 	public int getValOuvertures()
 	{
+		boolean[] tempo = new boolean[4];
+		if(this.ouvertures[4])
+		{
+			for (int i = 0; i < tempo.length; i++)
+			{
+				tempo[i] = ouvertures[i];
+			}
+
+			return Convertion.tab2Entier(tempo);
+		}
+
+		if(this.ouvertures[5])
+		{
+			for (int i = 0; i < tempo.length; i++)
+			{
+				tempo[i] = ouvertures[i];
+			}
+
+			return Convertion.tab2Entier(tempo);
+		}
+
 		return Convertion.tab2Entier(this.ouvertures);
 	}
 
@@ -41,10 +62,30 @@ public class Piece {
 		return tempo;
 	}
 
+	public boolean getDepart()
+	{
+		return this.ouvertures[4];
+	}
+
+	public boolean getArrivee()
+	{
+		return this.ouvertures[5];
+	}
+
 	public String toString()
 	{
 		String chaine;
 		chaine = "";
+
+		if(this.getDepart())
+		{
+			chaine += "Il s'agit de la case de depart\n";
+		}
+
+		if(this.getArrivee())
+		{
+			chaine += "Il s'agit d'une case d'arrive\n";
+		}
 
 		if(getValOuvertures() < 10)
 		{

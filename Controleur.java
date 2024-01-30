@@ -1,3 +1,9 @@
+/**  
+ * GUI version for Dedale
+ * @author Quillard Guillaume
+ * @version 1.0 du 16/01/2024
+**/
+
 import ihmgui.FrameGrille;
 import ihmgui.Controle;
 

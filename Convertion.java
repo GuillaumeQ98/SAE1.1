@@ -8,7 +8,7 @@
 import java.lang.Math;
 
 public class Convertion {
-	public static final int TAILLE_TAB = 4; 
+	public static final int TAILLE_TAB = 6; 
     
     public static boolean[] entier2Tab(int valeur, int nbElt)
 	{
