@@ -122,4 +122,14 @@ public class Piece {
 
 		return indice;
 	}
+
+	public boolean equals(Piece piece)
+	{
+		if(this.nom == piece.nom && this.ouvertures == piece.ouvertures)
+		{
+			return true;
+		}
+
+		return false;
+	}
 }

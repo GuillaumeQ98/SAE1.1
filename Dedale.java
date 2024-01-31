@@ -14,7 +14,8 @@ public class Dedale
 	{
 		tabPiece = new Piece[5][5];
 		this.tabPiece = this.initPiece();
-		//
+		pieceHeros = new Piece(1,"Hero");
+		this.tabPiece[3][4] = pieceHeros;
 	}
 
 
@@ -187,6 +188,16 @@ public class Dedale
 		return tabPiece[lig][col];
 	}
 
+	public char getSymboleHero(int lig, int col)
+	{
+		if(this.getPiece(lig, col).equals(pieceHeros))
+		{
+			return 's';
+		}
+		//System.out.println(this.getPiece(lig, col) == this.pieceHeros);
+
+		return ' ';
+	}
 
 	private Piece[][] initPiece()
 	{
@@ -208,10 +219,12 @@ public class Dedale
 			}
 		}
 
-		pieceHeros = new Piece(1,"Hero");
-		this.tabPiece[1][1] = pieceHeros;
+		
+		
 
 		return dedale;
 	}
+
+	
 
 }

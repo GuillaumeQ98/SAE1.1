@@ -5,6 +5,9 @@
 **/
 
 import ihmgui.FrameGrille;
+
+import javax.swing.plaf.metal.MetalBorders.ScrollPaneBorder;
+
 import ihmgui.Controle;
 
 public class Controleur extends Controle
@@ -68,8 +71,14 @@ public class Controleur extends Controle
 		}
 		if(couche == 1)
 		{
-			sImage = rep + "dw_s.png";
+			System.out.println(metier.getSymboleHero(ligne, colonne));
+			if(metier.getSymboleHero(ligne, colonne) == 's')
+			{
+				sImage = rep + "dw_s.png";
+			}
 		}
+
+		
 
 		return sImage;
 	}
