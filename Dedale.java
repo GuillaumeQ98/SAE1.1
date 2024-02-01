@@ -15,7 +15,8 @@ public class Dedale
 		tabPiece = new Piece[5][5];
 		this.tabPiece = this.initPiece();
 		pieceHeros = new Piece(1,"Hero");
-		this.tabPiece[3][4] = pieceHeros;
+		this.tabPiece[1][1] = pieceHeros;
+		this.recherchePosition(pieceHeros);
 	}
 
 
@@ -223,6 +224,29 @@ public class Dedale
 		
 
 		return dedale;
+	}
+
+	private Position recherchePosition(Piece p)
+	{
+		Position pos = new Position(0, 0);
+		for (int i = 0; i < tabPiece.length; i++)
+		{
+			for(int j = 0; j < tabPiece[0].length; j++)
+			{
+				if(p.equals(pieceHeros))
+				{
+					pos.setLig(i);
+					pos.setCol(j);
+
+					
+					
+					return pos;
+				}
+			}	
+		}
+		
+
+		return new Position(-1, -1);
 	}
 
 	

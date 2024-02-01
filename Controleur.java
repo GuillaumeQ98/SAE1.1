@@ -66,12 +66,12 @@ public class Controleur extends Controle
 					{
 						sImage = rep + "P" + metier.getPiece(ligne, colonne).getValOuvertures() + ".png";
 					}
-					System.out.println(sImage); 
+					//System.out.println(sImage); 
 			
 		}
 		if(couche == 1)
 		{
-			System.out.println(metier.getSymboleHero(ligne, colonne));
+			//System.out.println(metier.getSymboleHero(ligne, colonne));
 			if(metier.getSymboleHero(ligne, colonne) == 's')
 			{
 				sImage = rep + "dw_s.png";
