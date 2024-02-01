@@ -83,6 +83,21 @@ public class Controleur extends Controle
 		return sImage;
 	}
 
+	public void jouer(String touche)
+	{
+		if ( touche.equals ( "CR-Z" ) ) System.out.println ( "Pourquoi voulez-vous annuler ? " );
+		if ( touche.equals ( "FL-H" ) ) {
+			System.out.println ( "haut " );
+			metier.Deplacer ( 'N' );
+		}
+		if ( touche.equals ( "FL-G" ) ) metier.Deplacer ( 'O' );
+		if ( touche.equals ( "FL-B" ) ) metier.Deplacer ( 'S' );
+		if ( touche.equals ( "FL-D" ) ) metier.Deplacer ( 'E' );
+
+		if ( touche.equals ( "A")     ) System.out.println ( "Vous avez appuyer sur [A]" );
+		frame.majIHM();
+	}
+
 	public static void main(String[] a)
 	{
 		new Controleur();

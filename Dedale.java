@@ -9,14 +9,18 @@ public class Dedale
 {
 	private Piece[][] tabPiece;
 	private Piece pieceHeros;
+	private int posLig;
+	private int posCol;
 
 	public Dedale ()
 	{
 		tabPiece = new Piece[5][5];
 		this.tabPiece = this.initPiece();
 		pieceHeros = new Piece(1,"Hero");
-		this.tabPiece[1][1] = pieceHeros;
-		this.recherchePosition(pieceHeros);
+		this.posLig = 1;
+		this.posCol = 1;
+		this.tabPiece[posLig][posCol] = pieceHeros;
+		//this.recherchePosition(pieceHeros);
 	}
 
 
@@ -237,18 +241,57 @@ public class Dedale
 				{
 					pos.setLig(i);
 					pos.setCol(j);
-
-					
 					
 					return pos;
 				}
 			}	
 		}
 		
-
 		return new Position(-1, -1);
 	}
 
-	
+	public boolean Deplacer(char orient)
+	{
+		Piece hero = new Piece(-1);
+		Piece adj = new Piece(-1);
+		char contraire = ' ';
+
+		boolean deplacer = false;
+
+		if(hero.getOuverture(orient))
+		{
+			deplacer = true;
+			switch( orient )
+			{
+				case 'N' -> contraire = 'S';
+				case 'O' -> contraire = 'E';
+				case 'S' -> contraire = 'N';
+				case 'E' -> contraire = 'O';
+			}
+			
+			//adj = getPieceAdj(recherchePosition(pieceHeros).getLig(), recherchePosition(pieceHeros).getCol(), contraire);
+			
+			switch (orient)
+		{
+			case 'N' : this.posLig=0;
+			           this.posCol=1;
+			           break;
+			case 'O' : this.posLig=1;
+			           this.posCol=0;
+			           break;
+			case 'S' : this.posLig=2;
+			           this.posCol=1;
+			           break;
+			case 'E' : this.posLig=1;
+			           this.posCol=2;
+			           break;
+		}
+
+			deplacer = true;
+
+		}
+
+		return deplacer;
+	}
 
 }
