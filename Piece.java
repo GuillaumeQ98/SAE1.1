@@ -62,6 +62,11 @@ public class Piece {
 		return tempo;
 	}
 
+	public void setOuverture(int valeur)
+	{
+		this.ouvertures = Convertion.entier2Tab(valeur, ouvertures.length);
+	}
+
 	public boolean getDepart()
 	{
 		return this.ouvertures[4];

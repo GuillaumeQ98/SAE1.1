@@ -72,10 +72,11 @@ public class Controleur extends Controle
 		if(couche == 1)
 		{
 			//System.out.println(metier.getSymboleHero(ligne, colonne));
-			if(metier.getSymboleHero(ligne, colonne) == 's')
-			{
-				sImage = rep + "dw_s.png";
-			}
+			if(metier.getSymboleHero(ligne, colonne) == 's' && metier.getDirection() == 'N') sImage = rep + "dw_n.png";
+			if(metier.getSymboleHero(ligne, colonne) == 's' && metier.getDirection() == 'O') sImage = rep + "dw_o.png";
+			if(metier.getSymboleHero(ligne, colonne) == 's' && metier.getDirection() == 'S') sImage = rep + "dw_s.png";
+			if(metier.getSymboleHero(ligne, colonne) == 's' && metier.getDirection() == 'E') sImage = rep + "dw_e.png";
+			
 		}
 
 		
@@ -86,15 +87,12 @@ public class Controleur extends Controle
 	public void jouer(String touche)
 	{
 		if ( touche.equals ( "CR-Z" ) ) System.out.println ( "Pourquoi voulez-vous annuler ? " );
-		if ( touche.equals ( "FL-H" ) ) {
-			System.out.println ( "haut " );
-			metier.Deplacer ( 'N' );
-		}
+		if ( touche.equals ( "FL-H" ) ) metier.Deplacer ( 'N' );
 		if ( touche.equals ( "FL-G" ) ) metier.Deplacer ( 'O' );
 		if ( touche.equals ( "FL-B" ) ) metier.Deplacer ( 'S' );
 		if ( touche.equals ( "FL-D" ) ) metier.Deplacer ( 'E' );
-
 		if ( touche.equals ( "A")     ) System.out.println ( "Vous avez appuyer sur [A]" );
+		
 		frame.majIHM();
 	}
 

@@ -11,6 +11,7 @@ public class Dedale
 	private Piece pieceHeros;
 	private int posLig;
 	private int posCol;
+	private char direction;
 
 	public Dedale ()
 	{
@@ -20,7 +21,7 @@ public class Dedale
 		this.posLig = 1;
 		this.posCol = 1;
 		this.tabPiece[posLig][posCol] = pieceHeros;
-		//this.recherchePosition(pieceHeros);
+		this.direction = 'S';
 	}
 
 
@@ -195,11 +196,7 @@ public class Dedale
 
 	public char getSymboleHero(int lig, int col)
 	{
-		if(this.getPiece(lig, col).equals(pieceHeros))
-		{
-			return 's';
-		}
-		//System.out.println(this.getPiece(lig, col) == this.pieceHeros);
+		if(this.getPiece(lig, col).equals(pieceHeros)) return 's';
 
 		return ' ';
 	}
@@ -252,46 +249,37 @@ public class Dedale
 
 	public boolean Deplacer(char orient)
 	{
-		Piece hero = new Piece(-1);
-		Piece adj = new Piece(-1);
-		char contraire = ' ';
 
 		boolean deplacer = false;
 
-		if(hero.getOuverture(orient))
+		
+
+		if(pieceHeros.getOuverture(orient) && orient == this.direction)
 		{
-			deplacer = true;
-			switch( orient )
-			{
-				case 'N' -> contraire = 'S';
-				case 'O' -> contraire = 'E';
-				case 'S' -> contraire = 'N';
-				case 'E' -> contraire = 'O';
-			}
-			
-			//adj = getPieceAdj(recherchePosition(pieceHeros).getLig(), recherchePosition(pieceHeros).getCol(), contraire);
-			
 			switch (orient)
-		{
-			case 'N' : this.posLig=0;
-			           this.posCol=1;
-			           break;
-			case 'O' : this.posLig=1;
-			           this.posCol=0;
-			           break;
-			case 'S' : this.posLig=2;
-			           this.posCol=1;
-			           break;
-			case 'E' : this.posLig=1;
-			           this.posCol=2;
-			           break;
-		}
+			{
+				case 'N' -> this.posLig--;
+				case 'O' -> this.posCol--;
+				case 'S' -> this.posLig++;
+				case 'E' -> this.posCol++;
+			}
 
+			this.pieceHeros.setOuverture(tabPiece[posLig][posCol].getValOuvertures());
+			this.tabPiece = initPiece();
+			this.tabPiece[posLig][posCol] = pieceHeros;
+		
 			deplacer = true;
 
 		}
+
+		this.direction = orient;
 
 		return deplacer;
+	}
+
+	public char getDirection()
+	{
+		return this.direction;
 	}
 
 }
