@@ -13,6 +13,9 @@ public class Dedale
 	private int posCol;
 	private char direction;
 
+	private int posLigDepart, posColDepart;
+	private int posLigArrivee, posColArrive;
+
 	public Dedale ()
 	{
 		tabPiece = new Piece[5][5];
@@ -22,6 +25,8 @@ public class Dedale
 		this.posCol = 1;
 		this.tabPiece[posLig][posCol] = pieceHeros;
 		this.direction = 'S';
+
+		this.posColArrive = this.posColDepart = this.posLigArrivee = this.posLigDepart = -1;
 	}
 
 
@@ -204,7 +209,7 @@ public class Dedale
 	private Piece[][] initPiece()
 	{
 		Piece[][] dedale;
-		int[][]   tabNumPiece = {{0, 12, 14, 6, 0}, {0, 1, 5, 1, 0}, {8, 10, 15, 10, 2}, {0, 4, 5, 4, 0}, {0, 9, 11, 3, 0}};
+		int[][]   tabNumPiece = {{0, 12, 14, 6, 0}, {0, 1+16, 5, 1, 0}, {8, 10, 15, 10, 2}, {0, 32+4, 5, 4, 0}, {0, 9, 11, 3, 0}};
 
 		char nom = 'A';
 
@@ -218,6 +223,8 @@ public class Dedale
 				//System.out.println("j" +j);
 				dedale[i][j] = new Piece(tabNumPiece[i][j], nom + "");
 				nom++;
+
+				
 			}
 		}
 
@@ -267,6 +274,10 @@ public class Dedale
 			this.pieceHeros.setOuverture(tabPiece[posLig][posCol].getValOuvertures());
 			this.tabPiece = initPiece();
 			this.tabPiece[posLig][posCol] = pieceHeros;
+
+			if(posLig == 1 && posCol == 1) pieceHeros = new Piece(17, "Hero");
+
+			if(posLig == 4 && posCol == 1) pieceHeros = new Piece(36, "Hero");
 		
 			deplacer = true;
 

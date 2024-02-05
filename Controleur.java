@@ -54,32 +54,43 @@ public class Controleur extends Controle
 		int valeur;
 
 		//System.out.println("Image coord " + colonne + ligne);
+		
+		
 		if ( couche==0 )
-		{
-
-			
-					if(metier.getPiece(ligne, colonne).getValOuvertures() < 10)
-					{
-						sImage = rep + "P0" + metier.getPiece(ligne, colonne).getValOuvertures() + ".png";
-					}
-					else
-					{
-						sImage = rep + "P" + metier.getPiece(ligne, colonne).getValOuvertures() + ".png";
-					}
-					//System.out.println(sImage); 
+		{	
+			if(metier.getPiece(ligne, colonne).getValOuvertures() < 10)
+			{
+				sImage = rep + "P0" + metier.getPiece(ligne, colonne).getValOuvertures() + ".png";
+			}
+			else
+			{
+				sImage = rep + "P" + metier.getPiece(ligne, colonne).getValOuvertures() + ".png";
+			}			
 			
 		}
+
+		
+
 		if(couche == 1)
 		{
-			//System.out.println(metier.getSymboleHero(ligne, colonne));
+			couche++;
 			if(metier.getSymboleHero(ligne, colonne) == 's' && metier.getDirection() == 'N') sImage = rep + "dw_n.png";
 			if(metier.getSymboleHero(ligne, colonne) == 's' && metier.getDirection() == 'O') sImage = rep + "dw_o.png";
 			if(metier.getSymboleHero(ligne, colonne) == 's' && metier.getDirection() == 'S') sImage = rep + "dw_s.png";
 			if(metier.getSymboleHero(ligne, colonne) == 's' && metier.getDirection() == 'E') sImage = rep + "dw_e.png";
 			
+			/*if(metier.getPiece(ligne, colonne).getArrivee()) sImage = rep + "arrivee.png";
+			if(metier.getPiece(ligne, colonne).getDepart()) sImage = rep + "depart.png";*/
+			
 		}
 
-		
+		if(couche == 2)
+		{
+			if(metier.getPiece(ligne, colonne).getArrivee()) sImage = rep + "arrivee.png";
+			if(metier.getPiece(ligne, colonne).getDepart()) sImage = rep + "depart.png";
+
+			if(metier.getPiece(ligne, colonne).getArrivee()) sImage = rep + "arrivee.png";
+		}
 
 		return sImage;
 	}
@@ -92,7 +103,7 @@ public class Controleur extends Controle
 		if ( touche.equals ( "FL-B" ) ) metier.Deplacer ( 'S' );
 		if ( touche.equals ( "FL-D" ) ) metier.Deplacer ( 'E' );
 		if ( touche.equals ( "A")     ) System.out.println ( "Vous avez appuyer sur [A]" );
-		
+
 		frame.majIHM();
 	}
 
