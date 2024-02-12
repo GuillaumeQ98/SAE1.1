@@ -275,9 +275,9 @@ public class Dedale
 			this.tabPiece = initPiece();
 			this.tabPiece[posLig][posCol] = pieceHeros;
 
-			if(posLig == 1 && posCol == 1) pieceHeros = new Piece(17, "Hero");
+			//if(posLig == 1 && posCol == 1) pieceHeros = new Piece(17, "Hero");
 
-			if(posLig == 4 && posCol == 1) pieceHeros = new Piece(36, "Hero");
+			//if(posLig == 3 && posCol == 1) pieceHeros = new Piece(36, "Hero");
 		
 			deplacer = true;
 
@@ -286,6 +286,14 @@ public class Dedale
 		this.direction = orient;
 
 		return deplacer;
+	}
+
+	public char getSymbole (int lig, int col )
+	{
+		if ( this.tabPiece[lig][col].getDepart () ) return 'D';
+		if ( this.tabPiece[lig][col].getArrivee() ) return 'A';
+
+		return ' ';
 	}
 
 	public char getDirection()

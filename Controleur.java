@@ -53,6 +53,8 @@ public class Controleur extends Controle
 		String sImage=null;
 		int valeur;
 
+		char symbole;
+
 		//System.out.println("Image coord " + colonne + ligne);
 		
 		
@@ -79,17 +81,20 @@ public class Controleur extends Controle
 			if(metier.getSymboleHero(ligne, colonne) == 's' && metier.getDirection() == 'S') sImage = rep + "dw_s.png";
 			if(metier.getSymboleHero(ligne, colonne) == 's' && metier.getDirection() == 'E') sImage = rep + "dw_e.png";
 			
-			/*if(metier.getPiece(ligne, colonne).getArrivee()) sImage = rep + "arrivee.png";
-			if(metier.getPiece(ligne, colonne).getDepart()) sImage = rep + "depart.png";*/
-			
 		}
 
 		if(couche == 2)
 		{
-			if(metier.getPiece(ligne, colonne).getArrivee()) sImage = rep + "arrivee.png";
-			if(metier.getPiece(ligne, colonne).getDepart()) sImage = rep + "depart.png";
+			/*if(metier.getPiece(ligne, colonne).getArrivee()) sImage = rep + "arrivee.png";
+			if(metier.getPiece(ligne, colonne).getDepart ()) sImage = rep + "depart.png";*/
 
-			if(metier.getPiece(ligne, colonne).getArrivee()) sImage = rep + "arrivee.png";
+			symbole = this.metier.getSymbole ( ligne, colonne );
+			switch ( symbole )
+			{
+				case 'D' -> sImage = rep + "depart.png";
+				case 'A' -> sImage = rep + "arrivee.png";
+				default  -> sImage = rep + "vide.png";
+			}
 		}
 
 		return sImage;
